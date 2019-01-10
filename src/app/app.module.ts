@@ -9,6 +9,9 @@ import { StarshipsPage } from '../pages/starships/starships';
 import { VehiclesPage } from '../pages/vehicles/vehicles';
 
 import { StarshipsComponent } from '../components/starships/starships';
+import { FilmsComponent } from '../components/films/films';
+import { VehiclesComponent } from '../components/vehicles/vehicles';
+import { ItemComponent } from '../components/item/item';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +24,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FilmsPage,
     StarshipsPage,
     VehiclesPage,
-    StarshipsComponent
+    StarshipsComponent,
+    FilmsComponent,
+    VehiclesComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
