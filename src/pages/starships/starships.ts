@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import {Api} from '../../providers/api/api';
 import { NavController } from 'ionic-angular';
 import { StarshipsModel } from "../../models/starships/starships";
-
 
 @Component({
   selector: 'starships-home',
@@ -9,17 +9,24 @@ import { StarshipsModel } from "../../models/starships/starships";
 })
 export class StarshipsPage {
 
-  public starship: any; 
+  public starships: Array <any> = [];
 
-  constructor(public navCtrl: NavController) {
-  	
-  }
+  constructor(public navCtrl: NavController, private api: Api) {
+  
+  	 
+  } 
 
   ionViewWillEnter() {  
-    this.starship=new StarshipsModel();
-    this.starship.name="test2";
-    console.log(this.starship);
+    this.getInfo();
+  }
+
+  getInfo(){
+    this.api.post("starships").subscribe((resp) => {
+       this.starships = resp.json();
+    });
 
   }
 
 }
+
+
