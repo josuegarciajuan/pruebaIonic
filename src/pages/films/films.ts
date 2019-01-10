@@ -17,15 +17,26 @@ export class FilmsPage {
 
   ionViewWillEnter() {  
 	if(this.navParams.get("ident")){ 
-		console.log("solo 1 peli:"+this.navParams.get("ident"));
+		this.getInfo(this.navParams.get("ident"));
 	}else{
-		this.getInfo();
+		this.getInfo(0);
 	}
 
   }
-	getInfo(){
-    this.api.post("films").subscribe((resp) => {
-       this.films = resp.json();
+  getInfo(ident){
+	let endPoint="films";
+	if(ident!=0){
+		endPoint+="/"+ident;
+	}
+    this.api.post(endPoint).subscribe((resp) => {
+       if(ident!=0){
+       		this.films.push(resp.json());
+
+       }else{
+			let aux = resp.json();
+			this.films=aux.results;
+       }	
+       
     });
 
   }
