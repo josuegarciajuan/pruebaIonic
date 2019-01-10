@@ -39,7 +39,22 @@ export class ItemComponent {
 	       	 	break;
 	       	 case "films":
 	       	 	this.item.text=aux.title;
-	       	 	break;	
+	       	 	break;
+	       	case "characters":
+	       	 	this.item.text=aux.name;
+	       	 	break;
+	       	case "planets":
+	       	 	this.item.text=aux.name;
+	       	 	break;
+	       	case "starships":
+	       	 	this.item.text=aux.name;
+	       	 	break;
+	       	case "vehicles":
+	       	 	this.item.text=aux.name;
+	       	 	break;
+	       	case "species":
+	       	 	this.item.text=aux.name;
+	       	 	break;
 	       }
 	    });
   }
@@ -54,6 +69,12 @@ export class ItemComponent {
 		 case "films":
 		 	this.navCtrl.push(FilmsPage,paramObj);
 		 	break;	
+		 case "starships":
+		 	this.navCtrl.push(StarshipsPage,paramObj);
+		 	break;	
+		 case "vehicles":
+		 	this.navCtrl.push(VehiclesPage,paramObj);
+		 	break;			
 	}
     
   }

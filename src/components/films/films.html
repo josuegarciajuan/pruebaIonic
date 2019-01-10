@@ -1,4 +1,44 @@
-<!-- Generated template for the FilmsComponent component -->
-<div>
-  {{text}}
+
+title: {{item?.title}}<br />
+episode_id: {{item?.episode_id}}<br />
+opening_crawl: {{item?.opening_crawl}}<br />
+director: {{item?.director}}<br />
+producer: {{item?.producer}}<br />
+release_date: {{item?.release_date}}<br />
+
+
+
+<div *ngIf="characters.length > 0">
+characters:<br />
+<item [url]="character.url" [type]="character.type" [havelink]="character.havelink" [endpoint]="character.endpoint" *ngFor="let character of characters" ></item>
+<br />  	
 </div>
+
+<div *ngIf="planets.length > 0">
+planets:<br />
+<item [url]="planet.url" [type]="planet.type" [havelink]="planet.havelink" [endpoint]="planet.endpoint" *ngFor="let planet of planets" ></item>
+<br />  	
+</div>
+
+<div *ngIf="starships.length > 0">
+starships:<br />
+<item [url]="starship.url" [type]="starship.type" [havelink]="starship.havelink" [endpoint]="starship.endpoint" *ngFor="let starship of starships" ></item>
+<br />  	
+</div>
+
+<div *ngIf="vehicles.length > 0">
+vehicles:<br />
+<item [url]="vehicle.url" [type]="vehicle.type" [havelink]="vehicle.havelink" [endpoint]="vehicle.endpoint" *ngFor="let vehicle of vehicles" ></item>
+<br />  	
+</div>
+
+<div *ngIf="species.length > 0">
+species:<br />
+<item [url]="specie.url" [type]="specie.type" [havelink]="specie.havelink" [endpoint]="specie.endpoint" *ngFor="let specie of species" ></item>
+<br />  	
+</div>
+
+
+created: {{item?.created}}<br />
+edited: {{item?.edited}}<br />
+url: {{item?.url}}<br />
