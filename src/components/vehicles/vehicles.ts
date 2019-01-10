@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { VehiclesModel } from "../../models/starships/starships";
+import { VehiclesModel } from "../../models/vehicles/vehicles";
 import { ItemsModel } from "../../models/items/items";
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 
 @Component({
   selector: 'vehicles',
@@ -13,31 +14,18 @@ export class VehiclesComponent {
   public pilots: Array <any> = [];
   public films: Array <any> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private globalP: GlobalProvider) {
   	
  
   }
-   ngOnInit(){
- 		this.chargePilots();
- 		this.chargeFilms();
+  ngOnInit(){
+
+ 		this.globalP.chargeInfo(this.item.pilots,this.pilots,"pilots",false,"people");
+ 		this.globalP.chargeInfo(this.item.films,this.films,"films",false,"films");
+
   }
   
 
-  chargePilots(){
-  	for(let i=0;i<=this.item.pilots.length;i++){
-  		if(this.item.pilots[i]!= undefined){
-  			let pilot = new ItemsModel(this.item.pilots[i],"pilots",false,"people");  
-  			this.pilots.push(pilot);
-  		}
-  	}
-  }
-  chargeFilms(){
-  	for(let i=0;i<=this.item.films.length;i++){
-  		if(this.item.films[i]!= undefined){
-  			let film = new ItemsModel(this.item.films[i],"films",true,"films");  
-  			this.films.push(film);
-  		}
-  	}
-  }
+
 
 }

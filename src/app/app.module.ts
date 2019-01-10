@@ -25,6 +25,7 @@ import { ItemComponent } from '../components/item/item';
 
 //providers
 import { Api } from '../providers/api/api';
+import { GlobalProvider } from '../providers/globalProvider/globalProvider';
 
 
 
@@ -59,7 +60,8 @@ import { Api } from '../providers/api/api';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AppEnv,
-    Api
+    Api,
+    GlobalProvider
   ]
 })
 export class AppModule {}

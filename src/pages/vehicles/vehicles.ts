@@ -3,6 +3,7 @@ import {Api} from '../../providers/api/api';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VehiclesModel } from "../../models/vehicles/vehicles";
 
+
 @Component({
   selector: 'vehicles-home',
   templateUrl: 'vehicles.html'
@@ -18,31 +19,12 @@ export class VehiclesPage {
 
   ionViewWillEnter() {  
 	if(this.navParams.get("ident")){ 
-		this.getInfo(this.navParams.get("ident"));
+		//this.globalP.getInfo(this.navParams.get("ident"),"vehicles");
 	}else{
-		this.getInfo(0);
+		//this.globalP.getInfo(0,"vehicles");
 	}
 
   }
-
-  getInfo(ident){
-	let endPoint="vehicles";
-	if(ident!=0){
-		endPoint+="/"+ident;
-	}
-    this.api.post(endPoint).subscribe((resp) => {
-       if(ident!=0){
-       		this.vehicles.push(resp.json());
-
-       }else{
-			let aux = resp.json();
-			this.vehicles=aux.results;
-       }	
-       
-    });
-
-  }
-
 
 
 
