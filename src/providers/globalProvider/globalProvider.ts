@@ -7,6 +7,8 @@ import {Api} from '../api/api';
 @Injectable()
 export class GlobalProvider {
 
+  public items: Array <any> = [];
+
   constructor(public http: HttpClient,private api: Api) {
 
   }
@@ -22,26 +24,20 @@ export class GlobalProvider {
   }
 
   //usada desde las secciones para devolver la info de la api
-//  getInfo(ident,endPoint){
-//    console.log("pasogetInfo1");
-//    let arr: Array <any> = [];  
-//    console.log("pasogetInfo12");
-//    if(ident!=0){
-//      endPoint+="/"+ident;
-//    }
-//    console.log("pasogetInfo123");
-//    this.api.post(endPoint).subscribe((resp) => {
-//      console.log("pasogetInfo125");
-//    if(ident!=0){
-//      arr.push(resp.json());
-//    }else{
-//      console.log("pasogetInfo124");
-//      let aux = resp.json();
-//      arr=aux.results;
-//    }
-//    console.log("pasogetInfo2");
-//    return arr;  
-//  });
+  getInfo(ident,endPoint){
+    if(ident!=0){
+      endPoint+="/"+ident;
+    }
+    this.api.post(endPoint).subscribe((resp) => {
+     
+    if(ident!=0){
+      this.items.push(resp.json());
+    }else{
+      let aux = resp.json();
+      this.items=aux.results;
+    }
+    
+  });
 
-//  }
+  }
 }

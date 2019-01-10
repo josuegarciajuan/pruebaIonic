@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FilmsModel } from "../../models/films/films";
 import {Api} from '../../providers/api/api';
+import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 
 @Component({
   selector: 'films-home',
@@ -11,36 +12,19 @@ export class FilmsPage {
 
   public films: Array <any> = [];	
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api, private globalP: GlobalProvider) {
 
   }
 
   ionViewWillEnter() {  
 	if(this.navParams.get("ident")){ 
-		this.getInfo(this.navParams.get("ident"));
+		this.globalP.items=this.globalP.getInfo(this.navParams.get("ident"),"films");
 	}else{
-		this.getInfo(0);
+		this.globalP.items=this.globalP.getInfo(0,"films");
 	}
 
   }
-  getInfo(ident){
-	let endPoint="films";
-	if(ident!=0){
-		endPoint+="/"+ident;
-	}
-    this.api.post(endPoint).subscribe((resp) => {
-       if(ident!=0){
-       		this.films.push(resp.json());
-
-       }else{
-			let aux = resp.json();
-			this.films=aux.results;
-       }	
-       
-    });
-
-  }
-
+  
 }
 
 

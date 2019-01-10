@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {Api} from '../../providers/api/api';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VehiclesModel } from "../../models/vehicles/vehicles";
-
+import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 
 @Component({
   selector: 'vehicles-home',
@@ -10,24 +10,18 @@ import { VehiclesModel } from "../../models/vehicles/vehicles";
 })
 export class VehiclesPage {
 
-  public vehicles: Array <any> = [];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api) {
-  
+  constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api, private globalP: GlobalProvider) {  
   	 
   } 
 
   ionViewWillEnter() {  
 	if(this.navParams.get("ident")){ 
-		//this.globalP.getInfo(this.navParams.get("ident"),"vehicles");
+		this.globalP.items=this.globalP.getInfo(this.navParams.get("ident"),"vehicles");
 	}else{
-		//this.globalP.getInfo(0,"vehicles");
+		this.globalP.items=this.globalP.getInfo(0,"vehicles");
 	}
 
   }
-
-
-
 
 }
 
