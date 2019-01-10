@@ -8,9 +8,11 @@ import { FilmsPage } from '../pages/films/films';
 import { StarshipsPage } from '../pages/starships/starships';
 import { VehiclesPage } from '../pages/vehicles/vehicles';
 
+import { StarshipsComponent } from '../components/starships/starships';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     FilmsPage,
     StarshipsPage,
-    VehiclesPage
+    VehiclesPage,
+    StarshipsComponent
   ],
   imports: [
     BrowserModule,
