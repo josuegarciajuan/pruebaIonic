@@ -5,6 +5,7 @@ export class ItemsModel {
     havelink: string;
     text: string;
     endpoint: string;
+    ident: number;
 
     constructor(url,type,havelink,endpoint) {
         this.url=url;

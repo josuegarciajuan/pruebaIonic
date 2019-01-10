@@ -1,1 +1,12 @@
-{{item.text}}<br />
+<div *ngIf="item.havelink;else not_have_link">
+	<span (click)='openPage(item.type,item.ident);'>{{item.text}}</span>
+</div>
+
+<ng-template #not_have_link>
+	{{item.text}}
+</ng-template>
+
+
+
+
+<br />

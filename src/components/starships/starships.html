@@ -16,16 +16,18 @@
 
   <div *ngIf="pilots.length > 0">
   Pilots:<br />
-  <!--<item [show]="item.ident" [url]="item.url" *ngFor="let item of pilots" ></item>-->
   <item [url]="pilot.url" [type]="pilot.type" [havelink]="pilot.havelink" [endpoint]="pilot.endpoint" *ngFor="let pilot of pilots" ></item>
   <br />  	
   </div>
-<!--  
-"pilots": [],
-"films": [
-"https://swapi.co/api/films/1/"
-],
--->
+
+
+  <div *ngIf="films.length > 0">
+  Films:<br />
+  <item [url]="film.url" [type]="film.type" [havelink]="film.havelink" [endpoint]="film.endpoint" *ngFor="let film of films" ></item>
+  <br />  	
+  </div>
+
+
   created: {{item?.created}}<br />
   edited: {{item?.edited}}<br />
   url: {{item?.url}}<br />
