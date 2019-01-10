@@ -16,7 +16,7 @@ export class Api {
         if (!options) {
             options = new RequestOptions();
         }
-  
+
         // Support easy query params for GET requests
         if (params) {
             let p = new URLSearchParams();
@@ -36,7 +36,7 @@ export class Api {
         return this.http.get(this.appEnv.API_URL + '/' + endpoint, options);
     }
 
-    post(endpoint: string, body: any, options?: RequestOptions, api_token?: string) {
+    post(endpoint: string, body?: any, options?: RequestOptions, api_token?: string) {
         if (!options) {
             options = new RequestOptions();
         }
@@ -76,20 +76,20 @@ export class Api {
         return this.http.put(this.appEnv.API_URL + '/' + endpoint, body, options);
     }
 
-    uploadFile(endpoint: string, filePath: string, api_token: string): Promise<any> {
-        const fileTransfer: FileTransferObject = this.transfer.create();
+    //uploadFile(endpoint: string, filePath: string, api_token: string): Promise<any> {
+    //    const fileTransfer: FileTransferObject = this.transfer.create();
 
-        let options: FileUploadOptions = {
-            fileKey: 'attachment',
-            //            httpMethod: 'PUT',
-            //            fileName: 'name.jpg',
-            //            params: {parametroPrueba: 'valor parametro prueba'},
-            headers: {
-                authorization: 'Bearer ' + api_token,
-            }
-        }
+    //    let options: FileUploadOptions = {
+    //        fileKey: 'attachment',
+    //        //            httpMethod: 'PUT',
+    //        //            fileName: 'name.jpg',
+    //        //            params: {parametroPrueba: 'valor parametro prueba'},
+    //        headers: {
+    //            authorization: 'Bearer ' + api_token,
+    //        }
+    //    }
 
-        return fileTransfer.upload(filePath, this.appEnv.API_URL + '/' + endpoint, options);
-    }
+    //    return fileTransfer.upload(filePath, this.appEnv.API_URL + '/' + endpoint, options);
+    //}
 
 }

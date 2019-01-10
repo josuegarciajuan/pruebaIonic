@@ -12,9 +12,15 @@
   hyperdrive_rating: {{item?.hyperdrive_rating}}<br />
   MGLT: {{item?.MGLT}}<br />
   starship_class: {{item?.starship_class}}<br />
-  
 
-<!--
+
+  <div *ngIf="pilots.length > 0">
+  Pilots:<br />
+  <!--<item [show]="item.ident" [url]="item.url" *ngFor="let item of pilots" ></item>-->
+  <item [url]="pilot.url" [type]="pilot.type" [havelink]="pilot.havelink" [endpoint]="pilot.endpoint" *ngFor="let pilot of pilots" ></item>
+  <br />  	
+  </div>
+<!--  
 "pilots": [],
 "films": [
 "https://swapi.co/api/films/1/"
@@ -23,7 +29,7 @@
   created: {{item?.created}}<br />
   edited: {{item?.edited}}<br />
   url: {{item?.url}}<br />
-
+<br /><br /><br /><br />
 
 </div>
-<hr />
+
