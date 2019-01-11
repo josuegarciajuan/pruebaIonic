@@ -8,65 +8,51 @@
     <ion-list>
 
 
-
-
 		<ion-item><champ-value [champ]="'Title'" [value]="film?.title"></champ-value></ion-item>
 		<ion-item><champ-value [champ]="'Episode id'" [value]="film?.episode_id"></champ-value></ion-item>
 		<ion-item><champ-value [champ]="'Opening crawl'" [value]="film?.opening_crawl"></champ-value></ion-item>
 		<ion-item><champ-value [champ]="'Director'" [value]="film?.director"></champ-value></ion-item>
-		<ion-item><champ-value [champ]="'Producer'" [value]="film?.producer"></champ-value></ion-item>
-		<ion-item><champ-value [champ]="'Release date'" [value]="film?.release_date"></champ-value></ion-item>
+
+		<div *ngIf="version=='short'">
+			<button ion-button color="primary" (click)="viewMore(film?.url)">View More</button>
+		</div>
 
 
-<ion-item>
-<div *ngIf="characters.length > 0">
-characters:<br />
-<item [url]="character.url" [type]="character.type" [havelink]="character.havelink" [endpoint]="character.endpoint" *ngFor="let character of characters" ></item>
-<br />  	
-</div>
-</ion-item>
+		<div *ngIf="version=='long'">
+			<ion-item><champ-value [champ]="'Producer'" [value]="film?.producer"></champ-value></ion-item>
+			<ion-item><champ-value [champ]="'Release date'" [value]="film?.release_date"></champ-value></ion-item>
+		
 
-<ion-item>
-<div *ngIf="planets.length > 0">
-planets:<br />
-<item [url]="planet.url" [type]="planet.type" [havelink]="planet.havelink" [endpoint]="planet.endpoint" *ngFor="let planet of planets" ></item>
-<br />  	
-</div>
-</ion-item>
+			<ion-item *ngIf="characters.length > 0">
+				<h4>Characters:</h4>
+				<item [url]="character.url" [type]="character.type" [havelink]="character.havelink" [endpoint]="character.endpoint" *ngFor="let character of characters" ></item>
+			</ion-item>
 
-<ion-item>
-<div *ngIf="starships.length > 0">
-starships:<br />
-<item [url]="starship.url" [type]="starship.type" [havelink]="starship.havelink" [endpoint]="starship.endpoint" *ngFor="let starship of starships" ></item>
-<br />  	
-</div>
-</ion-item>
+			<ion-item *ngIf="planets.length > 0">
+				<h4>Planets:</h4>
+				<item [url]="planet.url" [type]="planet.type" [havelink]="planet.havelink" [endpoint]="planet.endpoint" *ngFor="let planet of planets" ></item>
+			</ion-item>
 
-<ion-item>
-<div *ngIf="vehicles.length > 0">
-vehicles:<br />
-<item [url]="vehicle.url" [type]="vehicle.type" [havelink]="vehicle.havelink" [endpoint]="vehicle.endpoint" *ngFor="let vehicle of vehicles" ></item>
-<br />  	
-</div>
-</ion-item>
+			<ion-item *ngIf="starships.length > 0">
+				<h4>Starships:</h4>
+				<item [url]="starship.url" [type]="starship.type" [havelink]="starship.havelink" [endpoint]="starship.endpoint" *ngFor="let starship of starships" ></item>
+			</ion-item>
 
-<ion-item>
-<div *ngIf="species.length > 0">
-species:<br />
-<item [url]="specie.url" [type]="specie.type" [havelink]="specie.havelink" [endpoint]="specie.endpoint" *ngFor="let specie of species" ></item>
-<br />  	
-</div>
-</ion-item>
+			<ion-item *ngIf="vehicles.length > 0">
+				<h4>Vehicles:</h4>
+				<item [url]="vehicle.url" [type]="vehicle.type" [havelink]="vehicle.havelink" [endpoint]="vehicle.endpoint" *ngFor="let vehicle of vehicles" ></item>
+			</ion-item>
+
+			<ion-item *ngIf="species.length > 0">
+				<h4>Species:</h4>
+				<item [url]="specie.url" [type]="specie.type" [havelink]="specie.havelink" [endpoint]="specie.endpoint" *ngFor="let specie of species" ></item>
+			</ion-item>
 
 
-
-
-
-
-		<ion-item><champ-value [champ]="'Created'" [value]="film?.created"></champ-value></ion-item>
-		<ion-item><champ-value [champ]="'Edited'" [value]="film?.edited"></champ-value></ion-item>
-		<ion-item><champ-value [champ]="'Url'" [value]="film?.url"></champ-value></ion-item>
-
+			<ion-item><champ-value [champ]="'Created'" [value]="film?.created"></champ-value></ion-item>
+			<ion-item><champ-value [champ]="'Edited'" [value]="film?.edited"></champ-value></ion-item>
+			<ion-item><champ-value [champ]="'Url'" [value]="film?.url"></champ-value></ion-item>
+		</div>
     </ion-list>
   </ion-card-content>
 

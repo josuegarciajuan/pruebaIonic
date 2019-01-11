@@ -12,7 +12,7 @@
 
 
   <ion-list>
-    <films [item]="film" *ngFor="let film of globalP.films" ></films>
+    <films [version]="version" [item]="film" *ngFor="let film of globalP.films" ></films>
   </ion-list>
 
   <ion-infinite-scroll *ngIf="globalP.quedanPages" (ionInfinite)="$event.waitFor(doInfinite())">

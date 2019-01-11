@@ -11,6 +11,7 @@ import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 export class FilmsPage {
 
   public pag: number;
+  public version: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api, private globalP: GlobalProvider) {
   	this.pag=1;
@@ -22,8 +23,10 @@ export class FilmsPage {
   	this.globalP.films=[];
 	if(this.navParams.get("ident")){ 
 		this.globalP.getInfo("films",this.navParams.get("ident"),"films",1);
+		this.version="long";
 	}else{
 		this.globalP.getInfo("films",0,"films",1);
+		this.version="short";
 	}
 
   }

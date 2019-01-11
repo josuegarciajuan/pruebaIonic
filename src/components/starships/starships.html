@@ -21,21 +21,15 @@
   		<ion-item><champ-value [champ]="'Starship class'" [value]="starship?.starship_class"></champ-value></ion-item>
 
 
-  <ion-item>		
-  <div *ngIf="pilots.length > 0">
-  Pilots:<br />
-  <item [url]="pilot.url" [type]="pilot.type" [havelink]="pilot.havelink" [endpoint]="pilot.endpoint" *ngFor="let pilot of pilots" ></item>
-  <br />  	
-  </div>
-  </ion-item>
+  		<ion-item *ngIf="pilots.length > 0">	
+			<h4>Pilots:</h4>
+			<item [url]="pilot.url" [type]="pilot.type" [havelink]="pilot.havelink" [endpoint]="pilot.endpoint" *ngFor="let pilot of pilots" ></item>
+		</ion-item>
 
-  <ion-item>
-  <div *ngIf="films.length > 0">
-  Films:<br />
-  <item [url]="film.url" [type]="film.type" [havelink]="film.havelink" [endpoint]="film.endpoint" *ngFor="let film of films" ></item>
-  <br />  	
-  </div>
-  </ion-item>
+		<ion-item *ngIf="films.length > 0">
+			<h4>Films:</h4>
+			<item [url]="film.url" [type]="film.type" [havelink]="film.havelink" [endpoint]="film.endpoint" *ngFor="let film of films" ></item>
+		</ion-item>
 
 
 		<ion-item><champ-value [champ]="'Created'" [value]="starship?.created"></champ-value></ion-item>

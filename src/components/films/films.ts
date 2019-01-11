@@ -3,6 +3,7 @@ import { FilmsModel } from "../../models/films/films";
 import { ItemsModel } from "../../models/items/items";
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
+import { FilmsPage } from "../../pages/films/films";
 
 @Component({
   selector: 'films',
@@ -11,6 +12,7 @@ import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 export class FilmsComponent {
   
   @Input('item') item : any;
+  @Input('version') version : any;
   
   public characters: Array <any> = [];
   public planets: Array <any> = [];
@@ -35,4 +37,19 @@ export class FilmsComponent {
   }
   
   
+
+  getIdFromUrl(url){
+  	let splited=url.split('/');
+  	return splited[splited.length-2];
+  }
+
+
+	viewMore(url){
+
+		let ident=this.getIdFromUrl(url);
+	  	let paramObj = { ident: ident };
+		this.navCtrl.push(FilmsPage,paramObj);    
+  }
+
+
 }

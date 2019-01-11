@@ -21,6 +21,7 @@ export class ItemComponent {
   @Input('type') type : any;
   @Input('havelink') havelink : any;
   @Input('endpoint') endpoint : any;
+  
 
   public item: any; 
   public character: CharactersModel;

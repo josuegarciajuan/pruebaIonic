@@ -1,14 +1,17 @@
-<div *ngIf="item.havelink;else not_have_link">
-	<span (click)='openPage(item.type,item.ident);'>{{item.text}}</span>
-</div>
+<ion-row *ngIf="item.havelink;else not_have_link">
+	<ion-col col-2><p >{{item.text}}</p></ion-col>
+	<ion-col col-10>
+		<button ion-button color="primary" (click)='openPage(item.type,item.ident);'>View</button>
+		<button *ngIf="item.type=='characters'" ion-button color="primary" (click)="abrirmodal(character.url)">View</button>
+	</ion-col>
+
+</ion-row>
 
 <ng-template #not_have_link>
-	{{item.text}}
+	<ion-row>
+		<ion-col col-2><p>{{item.text}}</ion-col>
+		<ion-col col-10>
+			<button *ngIf="item.type=='characters'" ion-button color="primary" (click)="abrirmodal(character.url)">View</button>
+		</ion-col>
+	</ion-row>	
 </ng-template>
-
-
-<span *ngIf="item.type=='characters'">
-<button ion-button color="primary" (click)="abrirmodal(character.url)">Abrir</button>
-</span>
-
-<br />
