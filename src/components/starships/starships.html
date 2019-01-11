@@ -1,37 +1,48 @@
-<div>
-  Name: {{starship?.name}}<br />
-  model: {{starship?.model}}<br />
-  manufacturer: {{starship?.manufacturer}}<br />
-  cost_in_credits: {{starship?.cost_in_credits}}<br />
-  length: {{starship?.length}}<br />
-  max_atmosphering_speed: {{starship?.max_atmosphering_speed}}<br />
-  crew: {{starship?.crew}}<br />
-  passengers: {{starship?.passengers}}<br />
-  cargo_capacity: {{starship?.cargo_capacity}}<br />
-  consumables: {{starship?.consumables}}<br />
-  hyperdrive_rating: {{starship?.hyperdrive_rating}}<br />
-  MGLT: {{starship?.MGLT}}<br />
-  starship_class: {{starship?.starship_class}}<br />
+<ion-card>
+
+  <ion-card-header>
+    {{starship?.name}}
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+		<ion-item><champ-value [champ]="'Name'" [value]="starship?.name"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Model'" [value]="starship?.model"></champ-value></ion-item>
+  		<ion-item><champ-value [champ]="'Manufacturer'" [value]="starship?.manufacturer"></champ-value></ion-item>
+  		<ion-item><champ-value [champ]="'Cost in credits'" [value]="starship?.cost_in_credits"></champ-value></ion-item>
+  		<ion-item><champ-value [champ]="'Length'" [value]="starship?.length"></champ-value></ion-item>
+  		<ion-item><champ-value [champ]="'Max atmosphering speed'" [value]="starship?.max_atmosphering_speed"></champ-value></ion-item>
+   		<ion-item><champ-value [champ]="'Crew'" [value]="starship?.crew"></champ-value></ion-item>
+  		<ion-item><champ-value [champ]="'Passengers'" [value]="starship?.passengers"></champ-value></ion-item>
+  		<ion-item><champ-value [champ]="'Cargo capacity'" [value]="starship?.cargo_capacity"></champ-value></ion-item>
+  		<ion-item><champ-value [champ]="'Consumables'" [value]="starship?.consumables"></champ-value></ion-item>
+  		<ion-item><champ-value [champ]="'Hyperdrive rating'" [value]="starship?.hyperdrive_rating"></champ-value></ion-item>
+  		<ion-item><champ-value [champ]="'MGLT'" [value]="starship?.MGLT"></champ-value></ion-item>
+  		<ion-item><champ-value [champ]="'Starship class'" [value]="starship?.starship_class"></champ-value></ion-item>
 
 
+  <ion-item>		
   <div *ngIf="pilots.length > 0">
   Pilots:<br />
   <item [url]="pilot.url" [type]="pilot.type" [havelink]="pilot.havelink" [endpoint]="pilot.endpoint" *ngFor="let pilot of pilots" ></item>
   <br />  	
   </div>
+  </ion-item>
 
-
+  <ion-item>
   <div *ngIf="films.length > 0">
   Films:<br />
   <item [url]="film.url" [type]="film.type" [havelink]="film.havelink" [endpoint]="film.endpoint" *ngFor="let film of films" ></item>
   <br />  	
   </div>
+  </ion-item>
 
 
-  created: {{starship?.created}}<br />
-  edited: {{starship?.edited}}<br />
-  url: {{starship?.url}}<br />
-<br /><br /><br /><br />
+		<ion-item><champ-value [champ]="'Created'" [value]="starship?.created"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Edited'" [value]="starship?.edited"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Url'" [value]="starship?.url"></champ-value></ion-item>
 
-</div>
+    </ion-list>
+  </ion-card-content>
 
+</ion-card>

@@ -6,38 +6,38 @@
 
   <ion-card-content>
     <ion-list>
-		  <ion-item><champ-value [champ]="'Name'" [value]="vehicle?.name"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Model'" [value]="vehicle?.model"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Manufacturer'" [value]="vehicle?.manufacturer"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Cost in credits'" [value]="vehicle?.cost_in_credits"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Length'" [value]="vehicle?.length"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Max atmospherid Speed'" [value]="vehicle?.max_atmosphering_speed"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Crew'" [value]="vehicle?.crew"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Passengers'" [value]="vehicle?.passengers"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Cargo Capacity'" [value]="vehicle?.cargo_capacity"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Consumables'" [value]="vehicle?.consumables"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Vehicle Class'" [value]="vehicle?.vehicle_class"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Name'" [value]="vehicle?.name"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Model'" [value]="vehicle?.model"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Manufacturer'" [value]="vehicle?.manufacturer"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Cost in credits'" [value]="vehicle?.cost_in_credits"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Length'" [value]="vehicle?.length"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Max atmospherid Speed'" [value]="vehicle?.max_atmosphering_speed"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Crew'" [value]="vehicle?.crew"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Passengers'" [value]="vehicle?.passengers"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Cargo Capacity'" [value]="vehicle?.cargo_capacity"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Consumables'" [value]="vehicle?.consumables"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Vehicle Class'" [value]="vehicle?.vehicle_class"></champ-value></ion-item>
 
 
-		  <ion-item>	
-		  <div *ngIf="pilots.length > 0">
-		  Pilots:<br />
-		  <item [url]="pilot.url" [type]="pilot.type" [havelink]="pilot.havelink" [endpoint]="pilot.endpoint" *ngFor="let pilot of pilots" ></item>
-		  <br />  	
-		  </div>
-		  </ion-item>
+		<ion-item>	
+		<div *ngIf="pilots.length > 0">
+		Pilots:<br />
+		<item [url]="pilot.url" [type]="pilot.type" [havelink]="pilot.havelink" [endpoint]="pilot.endpoint" *ngFor="let pilot of pilots" ></item>
+		<br />  	
+		</div>
+		</ion-item>
 
-		  <ion-item>
-		  <div *ngIf="films.length > 0">
-		  Films:<br />
-		  <item [url]="film.url" [type]="film.type" [havelink]="film.havelink" [endpoint]="film.endpoint" *ngFor="let film of films" ></item>
-		  <br />  	
-		  </div>
-		  </ion-item>
+		<ion-item>
+		<div *ngIf="films.length > 0">
+		Films:<br />
+		<item [url]="film.url" [type]="film.type" [havelink]="film.havelink" [endpoint]="film.endpoint" *ngFor="let film of films" ></item>
+		<br />  	
+		</div>
+		</ion-item>
 
-		  <ion-item><champ-value [champ]="'Created'" [value]="vehicle?.created"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'Edited'" [value]="vehicle?.edited"></champ-value></ion-item>
-		  <ion-item><champ-value [champ]="'URL'" [value]="vehicle?.url"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Created'" [value]="vehicle?.created"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'Edited'" [value]="vehicle?.edited"></champ-value></ion-item>
+		<ion-item><champ-value [champ]="'URL'" [value]="vehicle?.url"></champ-value></ion-item>
 
 
     </ion-list>
