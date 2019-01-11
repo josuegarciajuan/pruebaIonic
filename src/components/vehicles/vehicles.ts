@@ -22,17 +22,17 @@ export class VehiclesComponent {
  
   }
   ngOnInit(){
-  		this.vehicle=this.item;
- 		this.globalP.chargeInfo(this.item.pilots,this.pilots,"pilots",false,"people");
- 		this.globalP.chargeInfo(this.item.films,this.films,"films",true,"films");
+	this.vehicle=this.item;
+	this.globalP.chargeInfo(this.item.pilots,this.pilots,"pilots",false,"people");
+	this.globalP.chargeInfo(this.item.films,this.films,"films",true,"films");
 
   }
   
-	viewMore(url){
+  viewMore(url){
 
-		let ident=this.globalP.getIdFromUrl(url);
-	  	let paramObj = { ident: ident };
-		this.navCtrl.push(VehiclesPage,paramObj);    
+  	let ident=this.globalP.getIdFromUrl(url);
+	let paramObj = { ident: ident };
+	this.navCtrl.push(VehiclesPage,paramObj);    
   }
 
 

@@ -7,10 +7,12 @@
   <ion-card-content>
     <ion-list>
 
-
 		<ion-item><champ-value [champ]="'Title'" [value]="film?.title"></champ-value></ion-item>
+
 		<ion-item><champ-value [champ]="'Episode id'" [value]="film?.episode_id"></champ-value></ion-item>
+
 		<ion-item><champ-value [champ]="'Opening crawl'" [value]="film?.opening_crawl"></champ-value></ion-item>
+
 		<ion-item><champ-value [champ]="'Director'" [value]="film?.director"></champ-value></ion-item>
 
 		<div *ngIf="version=='short'">
@@ -50,7 +52,9 @@
 
 
 			<ion-item><champ-value [champ]="'Created'" [value]="film?.created"></champ-value></ion-item>
+
 			<ion-item><champ-value [champ]="'Edited'" [value]="film?.edited"></champ-value></ion-item>
+			
 			<ion-item><champ-value [champ]="'Url'" [value]="film?.url"></champ-value></ion-item>
 		</div>
     </ion-list>
