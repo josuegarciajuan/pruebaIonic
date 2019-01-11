@@ -10,7 +10,6 @@ import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 })
 export class FilmsPage {
 
-  public films: Array <any> = [];	
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api, private globalP: GlobalProvider) {
 
@@ -18,9 +17,9 @@ export class FilmsPage {
 
   ionViewWillEnter() {  
 	if(this.navParams.get("ident")){ 
-		this.globalP.items=this.globalP.getInfo(this.navParams.get("ident"),"films");
+		this.globalP.getInfo(this.navParams.get("ident"),"films");
 	}else{
-		this.globalP.items=this.globalP.getInfo(0,"films");
+		this.globalP.getInfo(0,"films");
 	}
 
   }

@@ -19,9 +19,9 @@ export class StarshipsPage {
 
   ionViewWillEnter() {  
 	if(this.navParams.get("ident")){ 
-		this.globalP.items=this.globalP.getInfo(this.navParams.get("ident"),"starships");
+		this.globalP.getInfo(this.navParams.get("ident"),"starships");
 	}else{
-		this.globalP.items=this.globalP.getInfo(0,"starships");
+		this.globalP.getInfo(0,"starships");
 	}
   }
  

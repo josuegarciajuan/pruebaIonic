@@ -10,17 +10,33 @@ import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 })
 export class VehiclesPage {
 
+  public pag: number;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api, private globalP: GlobalProvider) {  
-  	 
+	this.pag=1;
+	this.globalP.quedanPages=true;  	 
   } 
 
   ionViewWillEnter() {  
+  	this.globalP.items=[];
 	if(this.navParams.get("ident")){ 
-		this.globalP.items=this.globalP.getInfo(this.navParams.get("ident"),"vehicles");
+		this.globalP.getInfo(this.navParams.get("ident"),"vehicles",1);
 	}else{
-		this.globalP.items=this.globalP.getInfo(0,"vehicles");
+		this.globalP.getInfo(0,"vehicles",1);
 	}
 
+  }
+  doInfinite(): Promise<any> {
+ 	    return new Promise((resolve) => {
+	      setTimeout(() => {
+	      	this.pag++;
+	      	
+			if(!this.navParams.get("ident") && this.globalP.quedanPages){ 
+				this.globalP.getInfo(0,"vehicles",this.pag,2);
+			}
+	        resolve();
+	      }, 500);
+	    })
   }
 
 }

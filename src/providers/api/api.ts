@@ -25,7 +25,7 @@ export class Api {
             }
             // Set the search field if we have params and don't already have
             // a search field set in options.
-            options.search = !options.search && p || options.search;
+            //options.search = !options.search && p || options.search;
 
         }
         if (api_token) {
