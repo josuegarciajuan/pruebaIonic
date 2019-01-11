@@ -7,6 +7,8 @@
 </ng-template>
 
 
-
+<span *ngIf="item.type=='characters'">
+<button ion-button color="primary" (click)="abrirmodal(character.url)">Abrir</button>
+</span>
 
 <br />

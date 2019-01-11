@@ -26,6 +26,7 @@ export class GlobalProvider {
   	}
   }
 
+
   //usada desde las secciones para devolver la info de la api
   getInfo(arr,ident,endPoint,pag?: any, ttime?: number){
 
@@ -56,5 +57,7 @@ export class GlobalProvider {
     
     });
   }
+
+
 
 }

@@ -20,16 +20,17 @@ export class FilmsComponent {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private globalP: GlobalProvider) {
   	
- 
+ console.log("paso1");
   }
    ngOnInit(){
-	
+	console.log("paso2");
 	  this.globalP.chargeInfo(this.item.planets,this.planets,"planets",false,"planets");
 	  this.globalP.chargeInfo(this.item.starships,this.starships,"starships",true,"starships");
 	  this.globalP.chargeInfo(this.item.vehicles,this.vehicles,"vehicles",true,"vehicles");
 	  this.globalP.chargeInfo(this.item.species,this.species,"species",false,"species");
+	  this.globalP.chargeInfo(this.item.characters,this.characters,"characters",false,"people");
 
   }
   
-
+  
 }

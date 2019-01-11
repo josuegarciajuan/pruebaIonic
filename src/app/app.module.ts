@@ -16,6 +16,7 @@ import { HomePage } from '../pages/home/home';
 import { FilmsPage } from '../pages/films/films';
 import { StarshipsPage } from '../pages/starships/starships';
 import { VehiclesPage } from '../pages/vehicles/vehicles';
+import { ModalCharacterPage } from '../components/item/modalCharacter/modalCharacter';
 
 //components
 import { StarshipsComponent } from '../components/starships/starships';
@@ -39,7 +40,8 @@ import { GlobalProvider } from '../providers/globalProvider/globalProvider';
     StarshipsComponent,
     FilmsComponent,
     VehiclesComponent,
-    ItemComponent
+    ItemComponent,
+    ModalCharacterPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import { GlobalProvider } from '../providers/globalProvider/globalProvider';
     HomePage,
     FilmsPage,
     StarshipsPage,
-    VehiclesPage
+    VehiclesPage,
+    ModalCharacterPage
   ],
   providers: [
     StatusBar,

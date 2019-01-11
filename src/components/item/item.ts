@@ -1,12 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 
 import { ItemsModel } from "../../models/items/items";
+import { CharactersModel } from "../../models/characters/characters";
 import {Api} from '../../providers/api/api';
 import { FilmsPage } from "../../pages/films/films";
 import { StarshipsPage } from "../../pages/starships/starships";
 import { VehiclesPage } from "../../pages/vehicles/vehicles";
-
+import { ModalCharacterPage } from "./modalCharacter/modalCharacter";
 
 
 @Component({
@@ -21,8 +23,9 @@ export class ItemComponent {
   @Input('endpoint') endpoint : any;
 
   public item: any; 
+  public character: CharactersModel;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private api: Api) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private api: Api, public modalCtrl: ModalController) {
 
   }
 
@@ -33,6 +36,7 @@ export class ItemComponent {
   		let endpoint=this.endpoint+"/"+this.item.ident;
   		this.api.post(endpoint).subscribe((resp) => {
 	       let aux = resp.json();
+	       this.character=aux;
 	       switch(this.type){
 	       	 case "pilots":
 	       	 	this.item.text=aux.name;
@@ -77,6 +81,11 @@ export class ItemComponent {
 		 	break;			
 	}
     
+  }
+
+  abrirmodal(): any{
+  	let modal=this.modalCtrl.create(ModalCharacterPage,{data: this.character});
+  	modal.present();
   }
 
 }
