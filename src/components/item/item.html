@@ -3,13 +3,14 @@
 
 	<ion-col *ngIf="mode!='modal'" col-2><p >{{item?.text}}</p></ion-col>
 	<ion-col *ngIf="mode=='modal'"><p >{{item?.text}}</p></ion-col>
+
 	<ion-col *ngIf="mode!='modal'" col-10>
 		<button ion-button color="primary" (click)='openPage(item.type,item.ident);'>View</button>
-		<button *ngIf="item.type=='characters' && item?.text" ion-button color="primary" (click)="abrirmodal(character.url)">View</button>
+		<button *ngIf="item.type=='characters' && show" ion-button color="primary" (click)="abrirmodal(character.url)">View</button>
 	</ion-col>
 	<ion-col *ngIf="mode=='modal'" >
 		<button ion-button color="primary" (click)='openPage(item.type,item.ident);'>View</button>
-		<button *ngIf="item.type=='characters' && item?.text" ion-button color="primary" (click)="abrirmodal(character.url)">View</button>
+		<button *ngIf="item.type=='characters' && show" ion-button color="primary" (click)="abrirmodal(character.url)">View</button>
 	</ion-col>
 
 
@@ -19,11 +20,12 @@
 	<ion-row>
 		<ion-col *ngIf="mode!='modal'" col-2><p>{{item?.text}}</ion-col>
 		<ion-col *ngIf="mode=='modal'"><p>{{item?.text}}</ion-col>
+
 		<ion-col *ngIf="mode!='modal'" col-10>
-			<button *ngIf="item.type=='characters'" ion-button color="primary" (click)="abrirmodal(character.url)">View</button>
+			<button *ngIf="item.type=='characters' && show" ion-button color="primary" (click)="abrirmodal(character.url)">View</button>
 		</ion-col>
 		<ion-col *ngIf="mode=='modal'">
-			<button *ngIf="item.type=='characters'" ion-button color="primary" (click)="abrirmodal(character.url)">View</button>
+			<button *ngIf="item.type=='characters' && show" ion-button color="primary" (click)="abrirmodal(character.url)">View</button>
 		</ion-col>
 	</ion-row>	
 </ng-template>

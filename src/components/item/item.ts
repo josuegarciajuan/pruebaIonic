@@ -27,9 +27,10 @@ export class ItemComponent {
 
   public item: any; 
   public character: CharactersModel;
+  public show: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private api: Api, public modalCtrl: ModalController, private globalP: GlobalProvider) {
-
+  	this.show=false;
   }
 
 
@@ -63,7 +64,9 @@ export class ItemComponent {
 	       	 	this.item.text=aux.name;
 	       	 	break;
 	       }
+	       this.show=true;
 	    });
+
   }
 
 
