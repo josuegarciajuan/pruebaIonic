@@ -11,6 +11,7 @@ import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 export class VehiclesPage {
 
   public pag: number;
+  public version: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api, private globalP: GlobalProvider) {  
 	this.pag=1;
@@ -21,8 +22,10 @@ export class VehiclesPage {
   	this.globalP.vehicles=[];
 	if(this.navParams.get("ident")){ 
 		this.globalP.getInfo("vehicles",this.navParams.get("ident"),"vehicles",1);
+		this.version="long"
 	}else{
 		this.globalP.getInfo("vehicles",0,"vehicles",1);
+		this.version="short"
 	}
 	console.log(this.globalP.vehicles);
 

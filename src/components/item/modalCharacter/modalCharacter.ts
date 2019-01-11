@@ -12,11 +12,12 @@ export class ModalCharacterPage {
   public character: CharactersModel;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  	this.character=this.navParams.get("data");
 
   }
 
   ionViewWillEnter() {  
-  	this.character=this.navParams.get("data");	
+
   }
 
 }

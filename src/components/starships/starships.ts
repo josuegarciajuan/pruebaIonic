@@ -3,6 +3,7 @@ import { StarshipsModel } from "../../models/starships/starships";
 import { ItemsModel } from "../../models/items/items";
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
+import { StarshipsPage } from "../../pages/starships/starships";
 
 @Component({
   selector: 'starships',
@@ -14,6 +15,7 @@ export class StarshipsComponent {
   public pilots: Array <any> = [];
   public films: Array <any> = [];
   public starship: StarshipsModel;
+  @Input('version') version : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private globalP: GlobalProvider) {
 	
@@ -25,5 +27,13 @@ export class StarshipsComponent {
  		this.globalP.chargeInfo(this.item.films,this.films,"films",true,"films");
   }
   
+
+
+	viewMore(url){
+
+		let ident=this.globalP.getIdFromUrl(url);
+	  	let paramObj = { ident: ident };
+		this.navCtrl.push(StarshipsPage,paramObj);    
+  }
 
 }

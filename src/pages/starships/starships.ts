@@ -11,6 +11,7 @@ import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 export class StarshipsPage {
 
   public pag: number;
+  public version: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api, private globalP: GlobalProvider) {
   	this.pag=1;
@@ -22,8 +23,10 @@ export class StarshipsPage {
   	this.globalP.starships=[];
 	if(this.navParams.get("ident")){ 
 		this.globalP.getInfo("starships",this.navParams.get("ident"),"starships",1);
+		this.version="long"
 	}else{
 		this.globalP.getInfo("starships",0,"starships",1);
+		this.version="short"
 	}
   }
   doInfinite(): Promise<any> {

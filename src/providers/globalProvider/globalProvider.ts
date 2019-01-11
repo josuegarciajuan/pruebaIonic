@@ -59,5 +59,10 @@ export class GlobalProvider {
   }
 
 
+  //extrae el id de un elemento en base a la url
+  getIdFromUrl(url){
+    let splited=url.split('/');
+    return splited[splited.length-2];
+  }
 
 }

@@ -9,6 +9,7 @@ import { FilmsPage } from "../../pages/films/films";
 import { StarshipsPage } from "../../pages/starships/starships";
 import { VehiclesPage } from "../../pages/vehicles/vehicles";
 import { ModalCharacterPage } from "./modalCharacter/modalCharacter";
+import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 
 
 @Component({
@@ -21,19 +22,20 @@ export class ItemComponent {
   @Input('type') type : any;
   @Input('havelink') havelink : any;
   @Input('endpoint') endpoint : any;
-  
+  @Input('mode') mode : any;
+
 
   public item: any; 
   public character: CharactersModel;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private api: Api, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private api: Api, public modalCtrl: ModalController, private globalP: GlobalProvider) {
 
   }
 
 
   ngOnInit(){
   		this.item = new ItemsModel(this.url,this.type,this.havelink,this.endpoint);  
-  		this.item.ident=this.getIdFromUrl(this.url);
+  		this.item.ident=this.globalP.getIdFromUrl(this.url);
   		let endpoint=this.endpoint+"/"+this.item.ident;
   		this.api.post(endpoint).subscribe((resp) => {
 	       let aux = resp.json();
@@ -63,10 +65,7 @@ export class ItemComponent {
 	       }
 	    });
   }
-  getIdFromUrl(url){
-  	let splited=url.split('/');
-  	return splited[splited.length-2];
-  }
+
 
   openPage(page,ident){
   	let paramObj = { ident: ident };

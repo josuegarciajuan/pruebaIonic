@@ -1,21 +1,65 @@
-<div>
-charactername: {{item?.name}}
+<ion-card>
 
-	name
-	height
-	mass
-	hair_color
-	skin_color
-	eye_color
-	birth_year
-	gender
-	homeworld
-	films: Array
-	species: Array
-	vehicles: Array
-	starships: Array
-	created
-	edited
-	url
+  <ion-card-header>
+    {{item?.name}}
+  </ion-card-header>
 
-</div>
+  <ion-card-content>
+    <ion-list>
+
+
+	<ion-item><champ-value [champ]="'Name'" [value]="item?.name"></champ-value></ion-item>
+
+	<ion-item><champ-value [champ]="'Height'" [value]="item?.height"></champ-value></ion-item>
+	
+	<ion-item><champ-value [champ]="'Mass'" [value]="item?.mass"></champ-value></ion-item>
+
+	<ion-item><champ-value [champ]="'Hair color'" [value]="item?.hair_color"></champ-value></ion-item>
+	
+	<ion-item><champ-value [champ]="'Skin color'" [value]="item?.skin_color"></champ-value></ion-item>
+	
+	<ion-item><champ-value [champ]="'Eye_color'" [value]="item?.eye_color"></champ-value></ion-item>
+	
+	<ion-item><champ-value [champ]="'Birth year'" [value]="item?.birth_year"></champ-value></ion-item>
+	
+	<ion-item><champ-value [champ]="'Gender'" [value]="item?.gender"></champ-value></ion-item>
+	
+	<ion-item><champ-value [champ]="'Homeworld'" [value]="item?.homeworld"></champ-value></ion-item>
+	
+	
+	<ion-item *ngIf="films.length > 0">
+		<h4>Films:</h4>
+		<item [mode]="'modal'" [url]="film.url" [type]="film.type" [havelink]="film.havelink" [endpoint]="film.endpoint" *ngFor="let film of films" ></item>
+	</ion-item>
+
+	<ion-item *ngIf="species.length > 0">
+		<h4>Species:</h4>
+		<item [mode]="'modal'" [url]="specie.url" [type]="specie.type" [havelink]="specie.havelink" [endpoint]="specie.endpoint" *ngFor="let specie of species" ></item>
+	</ion-item>
+
+	<ion-item *ngIf="vehicles.length > 0">
+		<h4>Vehicles:</h4>
+		<item [mode]="'modal'" [url]="vehicle.url" [type]="vehicle.type" [havelink]="vehicle.havelink" [endpoint]="vehicle.endpoint" *ngFor="let vehicle of vehicles" ></item>
+	</ion-item>
+
+	<ion-item *ngIf="starships.length > 0">
+		<h4>Starships:</h4>
+		<item [mode]="'modal'" [url]="starship.url" [type]="starship.type" [havelink]="starship.havelink" [endpoint]="starship.endpoint" *ngFor="let starship of starships" ></item>
+	</ion-item>
+	
+	
+	<ion-item><champ-value [champ]="'Created'" [value]="item?.created"></champ-value></ion-item>
+	
+	<ion-item><champ-value [champ]="'Edited'" [value]="item?.edited"></champ-value></ion-item>
+	
+	<ion-item><champ-value [champ]="'URL'" [value]="item?.url"></champ-value></ion-item>
+
+
+		
+		
+
+    </ion-list>
+  </ion-card-content>
+
+</ion-card>
+

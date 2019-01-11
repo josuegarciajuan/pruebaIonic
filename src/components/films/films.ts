@@ -37,16 +37,9 @@ export class FilmsComponent {
   }
   
   
-
-  getIdFromUrl(url){
-  	let splited=url.split('/');
-  	return splited[splited.length-2];
-  }
-
-
 	viewMore(url){
 
-		let ident=this.getIdFromUrl(url);
+		let ident=this.globalP.getIdFromUrl(url);
 	  	let paramObj = { ident: ident };
 		this.navCtrl.push(FilmsPage,paramObj);    
   }
