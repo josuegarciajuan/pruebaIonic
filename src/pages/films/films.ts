@@ -10,18 +10,34 @@ import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 })
 export class FilmsPage {
 
+  public pag: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api, private globalP: GlobalProvider) {
+  	this.pag=1;
+	this.globalP.quedanPages=true;  	 
 
   }
 
   ionViewWillEnter() {  
+  	this.globalP.films=[];
 	if(this.navParams.get("ident")){ 
-		this.globalP.getInfo(this.navParams.get("ident"),"films");
+		this.globalP.getInfo("films",this.navParams.get("ident"),"films",1);
 	}else{
-		this.globalP.getInfo(0,"films");
+		this.globalP.getInfo("films",0,"films",1);
 	}
 
+  }
+  doInfinite(): Promise<any> {
+ 	    return new Promise((resolve) => {
+	      setTimeout(() => {
+	      	this.pag++;
+	      	
+			if(!this.navParams.get("ident") && this.globalP.quedanPages){ 
+				this.globalP.getInfo("films",0,"films",this.pag,2);
+			}
+	        resolve();
+	      }, 500);
+	    })
   }
   
 }

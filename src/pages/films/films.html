@@ -10,6 +10,14 @@
 <ion-content padding>
   <h3>Films</h3>
 
-  <films [item]="film" *ngFor="let film of globalP.items" ></films>
+
+  <ion-list>
+    <films [item]="film" *ngFor="let film of globalP.films" ></films>
+  </ion-list>
+
+  <ion-infinite-scroll *ngIf="globalP.quedanPages" (ionInfinite)="$event.waitFor(doInfinite())">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 
 </ion-content>

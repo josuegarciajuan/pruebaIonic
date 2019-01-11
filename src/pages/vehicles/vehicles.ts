@@ -18,12 +18,13 @@ export class VehiclesPage {
   } 
 
   ionViewWillEnter() {  
-  	this.globalP.items=[];
+  	this.globalP.vehicles=[];
 	if(this.navParams.get("ident")){ 
-		this.globalP.getInfo(this.navParams.get("ident"),"vehicles",1);
+		this.globalP.getInfo("vehicles",this.navParams.get("ident"),"vehicles",1);
 	}else{
-		this.globalP.getInfo(0,"vehicles",1);
+		this.globalP.getInfo("vehicles",0,"vehicles",1);
 	}
+	console.log(this.globalP.vehicles);
 
   }
   doInfinite(): Promise<any> {
@@ -32,7 +33,7 @@ export class VehiclesPage {
 	      	this.pag++;
 	      	
 			if(!this.navParams.get("ident") && this.globalP.quedanPages){ 
-				this.globalP.getInfo(0,"vehicles",this.pag,2);
+				this.globalP.getInfo("vehicles",0,"vehicles",this.pag,2);
 			}
 	        resolve();
 	      }, 500);

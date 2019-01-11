@@ -7,7 +7,9 @@ import {Api} from '../api/api';
 @Injectable()
 export class GlobalProvider {
 
-  public items: Array <any> = [];
+  public films: Array <any> = [];
+  public starships: Array <any> = [];
+  public vehicles: Array <any> = [];
   public quedanPages: boolean;
 
   constructor(public http: HttpClient,private api: Api) {
@@ -25,7 +27,8 @@ export class GlobalProvider {
   }
 
   //usada desde las secciones para devolver la info de la api
-  getInfo(ident,endPoint,pag?: any, ttime?: number){
+  getInfo(arr,ident,endPoint,pag?: any, ttime?: number){
+
     if(!ttime){
       ttime=1;
     }
@@ -38,13 +41,13 @@ export class GlobalProvider {
     this.api.get(endPoint).subscribe((resp) => {
      
       if(ident!=0){
-        this.items.push(resp.json());
+        this[arr].push(resp.json());
       }else{
         let aux = resp.json();
         if(ttime==1){
-          this.items=aux.results;
+          this[arr]=aux.results;
         }else{
-          this.items=this.items.concat(aux.results);
+          this[arr]=this[arr].concat(aux.results);
         }
         if(aux.next==null){
           this.quedanPages=false;

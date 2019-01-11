@@ -19,11 +19,11 @@ export class StarshipsPage {
   } 
 
   ionViewWillEnter() {  
-  	this.globalP.items=[];
+  	this.globalP.starships=[];
 	if(this.navParams.get("ident")){ 
-		this.globalP.getInfo(this.navParams.get("ident"),"starships",1);
+		this.globalP.getInfo("starships",this.navParams.get("ident"),"starships",1);
 	}else{
-		this.globalP.getInfo(0,"starships",1);
+		this.globalP.getInfo("starships",0,"starships",1);
 	}
   }
   doInfinite(): Promise<any> {
@@ -32,7 +32,7 @@ export class StarshipsPage {
 	      	this.pag++;
 	      	
 			if(!this.navParams.get("ident") && this.globalP.quedanPages){ 
-				this.globalP.getInfo(0,"starships",this.pag,2);
+				this.globalP.getInfo("starships",0,"starships",this.pag,2);
 			}
 	        resolve();
 	      }, 500);
