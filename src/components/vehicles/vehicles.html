@@ -1,15 +1,15 @@
 <div>
-  Name: {{item?.name}}<br />
-  model: {{item?.model}}<br />
-  manufacturer: {{item?.manufacturer}}<br />
-  cost_in_credits: {{item?.cost_in_credits}}<br />
-  length: {{item?.length}}<br />
-  max_atmosphering_speed: {{item?.max_atmosphering_speed}}<br />
-  crew: {{item?.crew}}<br />
-  passengers: {{item?.passengers}}<br />
-  cargo_capacity: {{item?.cargo_capacity}}<br />
-  consumables: {{item?.consumables}}<br />
-  vehicle_class: {{item?.vehicle_class}}<br />
+  Name: {{vehicle?.name}}<br />
+  model: {{vehicle?.model}}<br />
+  manufacturer: {{vehicle?.manufacturer}}<br />
+  cost_in_credits: {{vehicle?.cost_in_credits}}<br />
+  length: {{vehicle?.length}}<br />
+  max_atmosphering_speed: {{vehicle?.max_atmosphering_speed}}<br />
+  crew: {{vehicle?.crew}}<br />
+  passengers: {{vehicle?.passengers}}<br />
+  cargo_capacity: {{vehicle?.cargo_capacity}}<br />
+  consumables: {{vehicle?.consumables}}<br />
+  vehicle_class: {{vehicle?.vehicle_class}}<br />
 
 
   <div *ngIf="pilots.length > 0">
@@ -26,9 +26,9 @@
   </div>
 
 
-  created: {{item?.created}}<br />
-  edited: {{item?.edited}}<br />
-  url: {{item?.url}}<br />
+  created: {{vehicle?.created}}<br />
+  edited: {{vehicle?.edited}}<br />
+  url: {{vehicle?.url}}<br />
 <br /><br /><br /><br />
 
 </div>

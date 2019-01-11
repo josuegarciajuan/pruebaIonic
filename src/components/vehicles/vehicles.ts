@@ -13,13 +13,14 @@ export class VehiclesComponent {
   @Input('item') item : any;
   public pilots: Array <any> = [];
   public films: Array <any> = [];
+  public vehicle: VehiclesModel;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private globalP: GlobalProvider) {
   	
  
   }
   ngOnInit(){
-
+  		this.vehicle=this.item;
  		this.globalP.chargeInfo(this.item.pilots,this.pilots,"pilots",false,"people");
  		this.globalP.chargeInfo(this.item.films,this.films,"films",true,"films");
 

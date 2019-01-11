@@ -16,10 +16,7 @@ export class ModalCharacterPage {
   }
 
   ionViewWillEnter() {  
-  	//this.texto=this.navParams.get("data");	
   	this.character=this.navParams.get("data");	
-  	console.log("this.character2");
-  	console.log(this.character);
   }
 
 }

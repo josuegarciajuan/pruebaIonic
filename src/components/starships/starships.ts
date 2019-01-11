@@ -13,16 +13,16 @@ export class StarshipsComponent {
   @Input('item') item : any;
   public pilots: Array <any> = [];
   public films: Array <any> = [];
+  public starship: StarshipsModel;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private globalP: GlobalProvider) {
-  	
+	
  
   }
-   ngOnInit(){
- 		console.log(this.item);
+  ngOnInit(){
+  		this.starship=this.item; 		 	
  		this.globalP.chargeInfo(this.item.pilots,this.pilots,"pilots",false,"people");
  		this.globalP.chargeInfo(this.item.films,this.films,"films",true,"films");
-
   }
   
 
