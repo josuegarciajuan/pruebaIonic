@@ -23,6 +23,7 @@ import { StarshipsComponent } from '../components/starships/starships';
 import { FilmsComponent } from '../components/films/films';
 import { VehiclesComponent } from '../components/vehicles/vehicles';
 import { ItemComponent } from '../components/item/item';
+import { CharactersComponent } from '../components/characters/characters';
 
 //providers
 import { Api } from '../providers/api/api';
@@ -41,7 +42,8 @@ import { GlobalProvider } from '../providers/globalProvider/globalProvider';
     FilmsComponent,
     VehiclesComponent,
     ItemComponent,
-    ModalCharacterPage
+    ModalCharacterPage,
+    CharactersComponent
   ],
   imports: [
     BrowserModule,

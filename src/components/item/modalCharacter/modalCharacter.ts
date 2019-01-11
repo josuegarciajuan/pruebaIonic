@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CharactersModel } from "../../models/characters/characters";
+import { CharactersModel } from "../../../models/characters/characters";
 
 @Component({
   selector: 'modalCharacter-home',
