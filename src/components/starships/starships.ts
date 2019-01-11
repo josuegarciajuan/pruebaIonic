@@ -21,7 +21,7 @@ export class StarshipsComponent {
    ngOnInit(){
  		console.log(this.item);
  		this.globalP.chargeInfo(this.item.pilots,this.pilots,"pilots",false,"people");
- 		this.globalP.chargeInfo(this.item.films,this.films,"films",false,"films");
+ 		this.globalP.chargeInfo(this.item.films,this.films,"films",true,"films");
 
   }
   
