@@ -1,35 +1,51 @@
-<div>
-  Name: {{vehicle?.name}}<br />
-  model: {{vehicle?.model}}<br />
-  manufacturer: {{vehicle?.manufacturer}}<br />
-  cost_in_credits: {{vehicle?.cost_in_credits}}<br />
-  length: {{vehicle?.length}}<br />
-  max_atmosphering_speed: {{vehicle?.max_atmosphering_speed}}<br />
-  crew: {{vehicle?.crew}}<br />
-  passengers: {{vehicle?.passengers}}<br />
-  cargo_capacity: {{vehicle?.cargo_capacity}}<br />
-  consumables: {{vehicle?.consumables}}<br />
-  vehicle_class: {{vehicle?.vehicle_class}}<br />
+<ion-card>
+
+  <ion-card-header>
+    {{vehicle?.name}}
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+		  <ion-item><champ-value [champ]="'Name'" [value]="vehicle?.name"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Model'" [value]="vehicle?.model"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Manufacturer'" [value]="vehicle?.manufacturer"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Cost in credits'" [value]="vehicle?.cost_in_credits"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Length'" [value]="vehicle?.length"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Max atmospherid Speed'" [value]="vehicle?.max_atmosphering_speed"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Crew'" [value]="vehicle?.crew"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Passengers'" [value]="vehicle?.passengers"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Cargo Capacity'" [value]="vehicle?.cargo_capacity"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Consumables'" [value]="vehicle?.consumables"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Vehicle Class'" [value]="vehicle?.vehicle_class"></champ-value></ion-item>
 
 
-  <div *ngIf="pilots.length > 0">
-  Pilots:<br />
-  <item [url]="pilot.url" [type]="pilot.type" [havelink]="pilot.havelink" [endpoint]="pilot.endpoint" *ngFor="let pilot of pilots" ></item>
-  <br />  	
-  </div>
+		  <ion-item>	
+		  <div *ngIf="pilots.length > 0">
+		  Pilots:<br />
+		  <item [url]="pilot.url" [type]="pilot.type" [havelink]="pilot.havelink" [endpoint]="pilot.endpoint" *ngFor="let pilot of pilots" ></item>
+		  <br />  	
+		  </div>
+		  </ion-item>
+
+		  <ion-item>
+		  <div *ngIf="films.length > 0">
+		  Films:<br />
+		  <item [url]="film.url" [type]="film.type" [havelink]="film.havelink" [endpoint]="film.endpoint" *ngFor="let film of films" ></item>
+		  <br />  	
+		  </div>
+		  </ion-item>
+
+		  <ion-item><champ-value [champ]="'Created'" [value]="vehicle?.created"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'Edited'" [value]="vehicle?.edited"></champ-value></ion-item>
+		  <ion-item><champ-value [champ]="'URL'" [value]="vehicle?.url"></champ-value></ion-item>
 
 
-  <div *ngIf="films.length > 0">
-  Films:<br />
-  <item [url]="film.url" [type]="film.type" [havelink]="film.havelink" [endpoint]="film.endpoint" *ngFor="let film of films" ></item>
-  <br />  	
-  </div>
+    </ion-list>
+  </ion-card-content>
+
+</ion-card>
 
 
-  created: {{vehicle?.created}}<br />
-  edited: {{vehicle?.edited}}<br />
-  url: {{vehicle?.url}}<br />
-<br /><br /><br /><br />
 
-</div>
+
 

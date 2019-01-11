@@ -24,6 +24,7 @@ import { FilmsComponent } from '../components/films/films';
 import { VehiclesComponent } from '../components/vehicles/vehicles';
 import { ItemComponent } from '../components/item/item';
 import { CharactersComponent } from '../components/characters/characters';
+import { ChampValueComponent } from '../components/champ-value/champ-value';
 
 //providers
 import { Api } from '../providers/api/api';
@@ -43,7 +44,8 @@ import { GlobalProvider } from '../providers/globalProvider/globalProvider';
     VehiclesComponent,
     ItemComponent,
     ModalCharacterPage,
-    CharactersComponent
+    CharactersComponent,
+    ChampValueComponent
   ],
   imports: [
     BrowserModule,
