@@ -10,7 +10,13 @@
 <ion-content padding>
   <h3>Starships</h3>
   
-  <starships [item]="starship" *ngFor="let starship of globalP.items" ></starships>
+  <ion-list>
+    <starships [item]="starship" *ngFor="let starship of globalP.items" ></starships>
+  </ion-list>
+
+  <ion-infinite-scroll *ngIf="globalP.quedanPages" (ionInfinite)="$event.waitFor(doInfinite())">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 </ion-content>
   

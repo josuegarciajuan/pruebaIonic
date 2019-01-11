@@ -10,19 +10,33 @@ import { GlobalProvider } from '../../providers/globalProvider/globalProvider';
 })
 export class StarshipsPage {
 
-  public starships: Array <any> = [];
+  public pag: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private api: Api, private globalP: GlobalProvider) {
-  
+  	this.pag=1;
+	this.globalP.quedanPages=true;  	 
   	 
   } 
 
   ionViewWillEnter() {  
+  	this.globalP.items=[];
 	if(this.navParams.get("ident")){ 
-		this.globalP.getInfo(this.navParams.get("ident"),"starships");
+		this.globalP.getInfo(this.navParams.get("ident"),"starships",1);
 	}else{
-		this.globalP.getInfo(0,"starships");
+		this.globalP.getInfo(0,"starships",1);
 	}
+  }
+  doInfinite(): Promise<any> {
+ 	    return new Promise((resolve) => {
+	      setTimeout(() => {
+	      	this.pag++;
+	      	
+			if(!this.navParams.get("ident") && this.globalP.quedanPages){ 
+				this.globalP.getInfo(0,"starships",this.pag,2);
+			}
+	        resolve();
+	      }, 500);
+	    })
   }
  
 }
